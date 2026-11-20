@@ -1,0 +1,19 @@
+<header class="site-header">
+    <nav class="site-header__nav" aria-label="Navegación principal">
+        <a class="site-header__brand" routerLink="/" fragment="inicio">E-Market</a>
+        <ul class="site-header__links">
+            @for (link of links; track link.fragment) {
+                <li>
+                    <a
+                        [routerLink]="['/']"
+                        [fragment]="link.fragment"
+                        routerLinkActive="site-header__link--active"
+                        [routerLinkActiveOptions]="{ exact: true }"
+                        ariaCurrentWhenActive="page"
+                    >{{ link.label }}</a>
+                </li>
+            }
+        </ul>
+        <a class="site-header__store" [href]="storeUrl">Ingresar a la Tienda</a>
+    </nav>
+</header>

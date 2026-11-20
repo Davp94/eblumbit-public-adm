@@ -1,0 +1,148 @@
+.hero {
+  padding: 1.5rem 1.5rem 0;
+}
+
+.hero__image,
+.hero__empty {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 27rem;
+  max-width: 76rem;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 1rem;
+  background-color: #10243b;
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+}
+
+.hero__background,
+.hero__shade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero__background {
+  object-fit: cover;
+}
+
+.hero__shade {
+  background: linear-gradient(90deg, rgb(7 24 53 / 88%), rgb(7 24 53 / 16%));
+}
+
+.hero__empty {
+  background-image: linear-gradient(115deg, #10243b, #214f65);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 38rem);
+  padding: clamp(2rem, 7vw, 5rem);
+}
+
+.hero__badge {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background: #f97316;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+}
+
+.hero p {
+  max-width: 32rem;
+  margin: 1rem 0 1.75rem;
+  color: #e2e8f0;
+  line-height: 1.65;
+}
+
+.hero__button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0 1.25rem;
+  border-radius: 0.45rem;
+  background: #123aa5;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.hero__button:hover {
+  background: #0b2d8d;
+}
+
+.hero__arrow {
+  position: absolute;
+  top: 50%;
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  transform: translateY(-50%);
+  border: 0;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 85%);
+  color: #10243b;
+  cursor: pointer;
+  font-size: 1.75rem;
+}
+
+.hero__arrow--previous {
+  left: 1rem;
+}
+
+.hero__arrow--next {
+  right: 1rem;
+}
+
+.hero__dots {
+  position: absolute;
+  right: 0;
+  bottom: 1.5rem;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.hero__dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 55%);
+  cursor: pointer;
+}
+
+.hero__dot--active {
+  background: #fff;
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 1rem 1rem 0;
+  }
+
+  .hero__image,
+  .hero__empty {
+    min-height: 24rem;
+  }
+
+  .hero__content {
+    padding: 2rem 1.5rem;
+  }
+}

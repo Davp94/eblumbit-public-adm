@@ -1,0 +1,83 @@
+<section class="contact" aria-labelledby="contact-title">
+    <div class="contact__inner">
+        <div class="contact__details">
+            <h2 id="contact-title">Contáctanos</h2>
+            <p class="contact__intro">Estamos aquí para ayudarte. Selecciona una de nuestras sucursales para ver más detalles o envíanos un mensaje.</p>
+
+            <h3 class="contact__eyebrow">Nuestras sucursales</h3>
+            <div class="branch-list">
+                @for (branch of branches; track branch.name) {
+                    <article class="branch-card">
+                        <span class="contact__icon" aria-hidden="true">⌖</span>
+                        <div>
+                            <h4>{{ branch.name }}</h4>
+                            <p>{{ branch.address }}</p>
+                            <a [href]="branch.mapUrl" target="_blank" rel="noopener noreferrer">Ver detalles y mapa →</a>
+                        </div>
+                    </article>
+                }
+            </div>
+
+            <div class="contact__channels">
+                <div class="contact-channel">
+                    <span class="contact__icon" aria-hidden="true">☎</span>
+                    <div>
+                        <h3>Teléfonos</h3>
+                        <a href="tel:+541145678900">+54 (11) 4567-8900</a>
+                        <span aria-hidden="true"> | </span>
+                        <a href="tel:+541198765432">+54 (11) 9876-5432</a>
+                    </div>
+                </div>
+                <div class="contact-channel">
+                    <span class="contact__icon" aria-hidden="true">✉</span>
+                    <div>
+                        <h3>Email Corporativo</h3>
+                        <a href="mailto:contacto@emarket.com">contacto@emarket.com</a>
+                        <span aria-hidden="true"> | </span>
+                        <a href="mailto:soporte@emarket.com">soporte@emarket.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form class="contact-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+            <h3>Envíanos un Mensaje</h3>
+
+            <div class="contact-form__row">
+                <div class="form-field">
+                    <label for="contact-name">Nombre Completo</label>
+                    <input id="contact-name" type="text" formControlName="fullName" autocomplete="name" placeholder="Ej: Juan Pérez" [attr.aria-invalid]="form.controls.fullName.invalid && form.controls.fullName.touched">
+                    @if (form.controls.fullName.invalid && form.controls.fullName.touched) {
+                        <span class="form-error">Ingresa tu nombre completo.</span>
+                    }
+                </div>
+                <div class="form-field">
+                    <label for="contact-email">Email</label>
+                    <input id="contact-email" type="email" formControlName="email" autocomplete="email" placeholder="juan@ejemplo.com" [attr.aria-invalid]="form.controls.email.invalid && form.controls.email.touched">
+                    @if (form.controls.email.invalid && form.controls.email.touched) {
+                        <span class="form-error">Ingresa un correo electrónico válido.</span>
+                    }
+                </div>
+            </div>
+
+            <div class="form-field">
+                <label for="contact-message">Mensaje</label>
+                <textarea id="contact-message" rows="5" formControlName="message" placeholder="¿En qué podemos ayudarte?" [attr.aria-invalid]="form.controls.message.invalid && form.controls.message.touched"></textarea>
+                @if (form.controls.message.invalid && form.controls.message.touched) {
+                    <span class="form-error">Escribe tu mensaje (máximo 2000 caracteres).</span>
+                }
+            </div>
+
+            @if (successMessage(); as message) {
+                <p class="form-status form-status--success" role="status">{{ message }}</p>
+            }
+            @if (errorMessage(); as message) {
+                <p class="form-status form-status--error" role="alert">{{ message }}</p>
+            }
+
+            <button type="submit" [disabled]="submitting()">
+                {{ submitting() ? 'Enviando…' : 'Enviar Mensaje' }}
+            </button>
+        </form>
+    </div>
+</section>

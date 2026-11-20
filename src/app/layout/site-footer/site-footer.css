@@ -1,0 +1,124 @@
+.site-footer {
+  padding: 2.5rem 1.5rem;
+  background: #e5e7eb;
+}
+
+.site-footer__inner {
+  display: grid;
+  grid-template-columns: minmax(12rem, 2fr) 1fr 1fr minmax(10rem, 1fr);
+  gap: 2rem;
+  width: min(100%, 72rem);
+  margin-inline: auto;
+}
+
+.site-footer__brand {
+  color: #26344d;
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.site-footer__about > p {
+  max-width: 18rem;
+  color: #596273;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.site-footer__column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.site-footer__column h2 {
+  margin: 0 0 0.25rem;
+  color: #3e4655;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.site-footer__column a {
+  color: #596273;
+  font-size: 0.78rem;
+  text-decoration: none;
+}
+
+.site-footer__column a:hover {
+  color: #123aa5;
+  text-decoration: underline;
+}
+
+.site-footer__social {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.site-footer__social a {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  color: #123aa5;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-footer__account {
+  text-align: center;
+}
+
+.site-footer__account p {
+  margin: 0 0 0.65rem;
+  font-size: 0.78rem;
+}
+
+.site-footer__account a {
+  display: inline-block;
+  padding: 0.6rem 1.25rem;
+  border-radius: 0.45rem;
+  background: #123aa5;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-footer__copyright {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #596273;
+  font-size: 0.75rem;
+  text-align: right;
+}
+
+@media (max-width: 700px) {
+  .site-footer__inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .site-footer__about {
+    grid-column: 1 / -1;
+  }
+
+  .site-footer__account {
+    text-align: left;
+  }
+}
+
+@media (max-width: 420px) {
+  .site-footer {
+    padding-inline: 1rem;
+  }
+
+  .site-footer__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 1rem;
+  }
+
+  .site-footer__copyright {
+    text-align: left;
+  }
+}

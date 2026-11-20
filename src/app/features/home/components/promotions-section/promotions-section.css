@@ -1,0 +1,148 @@
+.section-wrap {
+  width: min(100% - 3rem, 72rem);
+  margin-inline: auto;
+}
+
+.promotions {
+  padding-block: 4.5rem 5rem;
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.section-heading h2 {
+  margin: 0;
+  color: #123aa5;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.section-heading p {
+  margin: 0.45rem 0 0;
+  color: #647084;
+}
+
+.text-link {
+  flex: 0 0 auto;
+  color: #123aa5;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.text-link span {
+  margin-left: 0.35rem;
+}
+
+.promotion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.promotion-card {
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: #fff;
+  box-shadow: 0 0.25rem 1.25rem rgb(15 23 42 / 7%);
+}
+
+.promotion-card__image {
+  position: relative;
+  height: 13rem;
+  background: #e2e8f0;
+}
+
+.promotion-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.promotion-card__badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: #f97316;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.promotion-card__body {
+  padding: 1rem 1.1rem 1.1rem;
+}
+
+.promotion-card h3 {
+  margin: 0;
+  color: #202633;
+  font-size: 1.15rem;
+}
+
+.promotion-card p {
+  display: -webkit-box;
+  min-height: 2.7rem;
+  margin: 0.55rem 0 1rem;
+  overflow: hidden;
+  color: #647084;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.promotion-card__link {
+  display: grid;
+  min-height: 2.5rem;
+  place-items: center;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.4rem;
+  color: #123aa5;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.promotion-card__link:hover {
+  border-color: #123aa5;
+  background: #f5f7ff;
+}
+
+.promotions__empty {
+  padding: 2rem;
+  border-radius: 0.75rem;
+  background: #fff;
+  color: #647084;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .promotion-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .section-wrap {
+    width: min(100% - 2rem, 72rem);
+  }
+
+  .promotions {
+    padding-block: 3.5rem;
+  }
+
+  .section-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .promotion-grid {
+    grid-template-columns: 1fr;
+  }
+}

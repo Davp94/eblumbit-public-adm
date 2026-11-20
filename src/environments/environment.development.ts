@@ -7,4 +7,6 @@ export const environment = {
     messagingSenderId: '534915410076',
     appId: '1:534915410076:web:8e6eafbee4695321e72559',
   },
+  storeUrl: 'https://eblumbit-store.com',
+  adminUrl: 'http://eblumbit-adm.com'
 };

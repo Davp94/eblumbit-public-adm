@@ -1,0 +1,40 @@
+<section class="hero" aria-label="Promociones destacadas">
+    @if (activeSlide(); as slide) {
+        <div class="hero__image">
+            <img class="hero__background" [src]="slide.imageUrl" alt="">
+            <div class="hero__shade" aria-hidden="true"></div>
+            <div class="hero__content">
+                @if (slide.badge) {
+                    <span class="hero__badge">{{ slide.badge }}</span>
+                }
+                <h1>{{ slide.title }}</h1>
+                <p>{{ slide.subtitle }}</p>
+                <a class="hero__button" [href]="storeUrl">Descubrir la tienda</a>
+            </div>
+            @if (total() > 1) {
+                <button class="hero__arrow hero__arrow--previous" type="button" aria-label="Promoción anterior" (click)="previous()">‹</button>
+                <button class="hero__arrow hero__arrow--next" type="button" aria-label="Promoción siguiente" (click)="next()">›</button>
+                <div class="hero__dots" aria-label="Seleccionar promoción">
+                    @for (item of slides(); track item.id; let i = $index) {
+                        <button
+                            type="button"
+                            class="hero__dot"
+                            [class.hero__dot--active]="i === index()"
+                            [attr.aria-label]="'Ver promoción ' + (i + 1)"
+                            [attr.aria-current]="i === index() ? 'true' : null"
+                            (click)="showSlide(i)"
+                        ></button>
+                    }
+                </div>
+            }
+        </div>
+    } @else {
+        <div class="hero__empty">
+            <div class="hero__content">
+                <h1>Todo lo que buscas, en un solo lugar</h1>
+                <p>Descubre productos y ofertas para hacer tu día mejor.</p>
+                <a class="hero__button" [href]="storeUrl">Descubrir la tienda</a>
+            </div>
+        </div>
+    }
+</section>
